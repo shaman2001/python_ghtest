@@ -17,6 +17,6 @@ def app(request):
 def test_GitHubScript(app):
     success = True
     app.session.login(username="v.s.kotovich@gmail.com", password="qwerty123")
-    app.different_actions()
+    app.group.different_actions()
     app.session.logout()
 #    assertTrue(success)
