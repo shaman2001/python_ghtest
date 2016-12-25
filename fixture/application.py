@@ -10,7 +10,5 @@ class Application:
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
 
-
-
     def destroy(self):
         self.wd.quit()

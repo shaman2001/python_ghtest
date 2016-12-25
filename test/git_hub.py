@@ -1,18 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import pytest
-
-from fixture.application import Application
-
-
 #from selenium.webdriver.common.keys import Keys
-
-
-@pytest.fixture
-def app(request):
-    fixture = Application()
-    request.addfinalizer(fixture.destroy)
-    return fixture
 
 def test_GitHubScript(app):
     success = True
@@ -20,3 +8,10 @@ def test_GitHubScript(app):
     app.group.different_actions()
     app.session.logout()
 #    assertTrue(success)
+
+def test_repo_qty(app):
+    app.session.login(username="v.s.kotovich@gmail.com", password="qwerty123")
+    #print(app.group.get_repo_count_from_lbl())
+    #print(app.group.get_repo_count_from_list())
+    assert app.group.get_repo_count_from_lbl() == app.group.get_repo_count_from_list()
+    app.session.logout()

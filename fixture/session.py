@@ -5,7 +5,6 @@ class SessionHelper:
     def __init__(self, app):
         self.app = app
 
-
     def logout(self):
         wd = self.app.wd
         wd.find_element_by_xpath("//ul[@id='user-links']/li[3]/a").click()
